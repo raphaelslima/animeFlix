@@ -2,7 +2,7 @@ import React from "react";
 
 import "./style.css";
 
-const maxItens = 9;
+const maxItens = 5;
 const maxItensLeft = (maxItens - 1) / 2;
 
 function Pagination({ limit, total, offset, setOffset }) {
@@ -15,10 +15,11 @@ function Pagination({ limit, total, offset, setOffset }) {
   }
 
   return (
-    <div>
-      <ul>
+    <div className="changePage">
+      <ul className="pagination">
         <li>
           <button
+            className="btn"
             onClick={() => onPageChange(current - 1)}
             disabled={current === 1}
           >
@@ -30,13 +31,19 @@ function Pagination({ limit, total, offset, setOffset }) {
           .map((page) => (
             <li key={page}>
               {" "}
-              <button onClick={() => onPageChange(page)}>{page}</button>
+              <button
+                className={page === current ? "active" : "number"}
+                onClick={() => onPageChange(page)}
+              >
+                {page}
+              </button>
             </li>
           ))}
         <li>
           <button
             onClick={() => onPageChange(current + 1)}
             disabled={current === total}
+            className="btn"
           >
             Próximo
           </button>

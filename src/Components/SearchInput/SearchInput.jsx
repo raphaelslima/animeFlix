@@ -12,7 +12,15 @@ function SearchInput({ value, onChange }) {
     debouncedChange(e.target.value);
   }
 
-  return <input type="search" value={displayValue} onChange={handleOnChange} />;
+  return (
+    <input
+      type="search"
+      className="input"
+      placeholder="Pesquise por anime"
+      value={displayValue}
+      onChange={handleOnChange}
+    />
+  );
 }
 
 export default SearchInput;

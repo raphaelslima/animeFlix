@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  color: #d30812;
+  text-transform: uppercase;
+}
+
+main {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+main ul .anime {
+  border: 2px solid #fff;
+  margin-bottom: 1.5rem;
+}
+
+main ul li img {
+  width: 100%;
+}
+
+main ul li p {
+  margin: 1rem 0;
+  width: 100%;
+  text-align: center;
+  color: #d30812;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 1rem 2rem;
+  }
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  main ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main ul li p {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  header h1 {
+    font-size: 3rem;
+  }
+
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}

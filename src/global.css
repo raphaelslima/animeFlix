@@ -10,9 +10,11 @@
 body {
   max-width: 1200px;
   padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  background: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Poppins", sans-serif;
 }

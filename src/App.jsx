@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "./app.css";
+
 import qs from "qs";
 
 import SearchInput from "./Components/SearchInput/SearchInput";
@@ -35,31 +37,35 @@ function App() {
   }, [text, offset]);
 
   return (
-    <div className="App">
-      <h1>Animes</h1>
-      <SearchInput value={text} onChange={(e) => setText(e)} />
-      {!info.data && <span>Carregando...</span>}
-      {info.data && (
-        <ul>
-          {info.data.map((anime) => (
-            <li key={anime.id}>
-              <img
-                src={anime.attributes.posterImage.small}
-                alt={`Capa de ${anime.attributes.canonicalTitle}`}
-              />
-              <p>{anime.attributes.canonicalTitle}</p>
-            </li>
-          ))}
-        </ul>
-      )}
-      {info.meta && (
-        <Pagination
-          limit={limit}
-          total={info.meta.count}
-          offset={offset}
-          setOffset={setOffet}
-        />
-      )}
+    <div className="container">
+      <header>
+        <h1>Animes</h1>
+        <SearchInput value={text} onChange={(e) => setText(e)} />
+      </header>
+      <main>
+        {!info.data && <span>Carregando...</span>}
+        {info.data && (
+          <ul>
+            {info.data.map((anime) => (
+              <li key={anime.id} className="anime">
+                <img
+                  src={anime.attributes.posterImage.small}
+                  alt={`Capa de ${anime.attributes.canonicalTitle}`}
+                />
+                <p>{anime.attributes.canonicalTitle}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+        {info.meta && (
+          <Pagination
+            limit={limit}
+            total={info.meta.count}
+            offset={offset}
+            setOffset={setOffet}
+          />
+        )}
+      </main>
     </div>
   );
 }
